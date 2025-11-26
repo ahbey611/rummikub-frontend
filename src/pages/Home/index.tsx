@@ -3,27 +3,32 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import Features from '@/components/Features';
-// import {ColourfulTextDemo} from '@/components/ColourfulTextDemo';
 
 const Home = () => {
   return (
-    // 全局背景：深绿色径向渐变，模拟高级绒布牌桌
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-900 via-green-950 to-black overflow-x-hidden font-sans">
-      
-      {/* 噪点纹理 (可选，增加质感) */}
-      <div className="fixed inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-
+    // 使用柔和的浅色渐变，避免使用黑色，营造轻松氛围
+    <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-200">
       <Navbar />
       
       <main>
         <HeroSection />
+        
+        {/* 一个简单的过渡分割线 */}
+        <div className="h-24 bg-gradient-to-b from-transparent to-white"></div>
+        
         <Features />
-        {/* <ColourfulTextDemo /> */}
       </main>
 
-      {/* 简易 Footer */}
-      <footer className="py-8 text-center text-gray-500 text-sm bg-black/40">
-        <p>&copy; 2025 RummyPro. All rights reserved.</p>
+      {/* Footer */}
+      <footer className="bg-white py-12 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+          <p>© 2025 RummyWorld. Just for fun.</p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <a href="#" className="hover:text-gray-600">Privacy</a>
+            <a href="#" className="hover:text-gray-600">Terms</a>
+            <a href="#" className="hover:text-gray-600">Contact</a>
+          </div>
+        </div>
       </footer>
     </div>
   );

@@ -1,63 +1,120 @@
 // src/components/HeroSection.tsx
 import React from 'react';
-import { PlayCircle, ShieldCheck } from 'lucide-react';
-import DecorativeCard from '@/components/DecorativeCard';
+import { ArrowRight, BrainCircuit, Users } from 'lucide-react';
+import RummyTile from './RummyTile';
+import { TypewriterEffectDemo } from './TypeWritterEffect';
+import { TypewriterEffect } from '@/components/ui/typewriter-effect';
 
 const HeroSection = () => {
-  return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      
-      {/* 背景光效 */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-[100px]"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-[100px]"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    const firstLine = [
+    {
+      text: "Think",
+      className:"text-6xl md:text-7xl font-black text-gray-900 "
+    },
+    {
+      text: "Fast.",
+      className:"text-6xl md:text-7xl font-black text-gray-900 "
+}
+    ];
+
+    const secondLine = [
+    {
+      text: "Play",
+      className:"text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 leading-tight tracking-tight"
+    },
+    {
+      text: "Smart",
+className:"text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 leading-tight tracking-tight"      
+}
+    ];
+    
+
+
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
+      {/* 背景装饰：柔和的圆形光斑 */}
+      <div className="absolute top-20 right-0 w-[800px] h-[800px] bg-blue-400/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-400/10 rounded-full blur-3xl -z-10"></div>
+
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         
-        {/* 左侧文案 */}
-        <div className="space-y-8 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-yellow-400 text-sm font-semibold tracking-wider uppercase backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            10,000+ Players Online
+        {/* 左侧：文案 */}
+        <div className="space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full font-bold text-sm">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+            </span>
+            Waiting for players...
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-tight drop-shadow-lg">
-            Master The <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-200">
-              Classic Rummy
-            </span>
+          <h1 className="text-6xl md:text-7xl font-black text-gray-900 leading-tight tracking-tight">
+            Think Fast.
+            {/* <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              Play Smart.
+            </span> */}
           </h1>
-          
-          <p className="text-lg text-gray-300 max-w-xl mx-auto md:mx-0 leading-relaxed">
-            体验极致流畅的 13 张 Rummy 对战。公平竞技，实时匹配，与全球顶尖高手一决高下。
+
+
+            {/* <TypewriterEffectDemo/> */}
+
+            {/* <TypewriterEffect words={firstLine} /> */}
+            <TypewriterEffect words={secondLine} className='-mt-10'/>
+
+          <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
+            The world's favorite tile game is now online. 
+            Arrange sets, runs, and outsmart your opponents in this addictive strategy game.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="group relative px-8 py-4 bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-xl font-bold text-black text-lg shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] transition-all transform hover:-translate-y-1 active:scale-95">
-              <span className="flex items-center gap-2">
-                PLAY NOW <PlayCircle size={24} />
-              </span>
-              {/* 按钮光泽动画 */}
-              <div className="absolute inset-0 rounded-xl bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 overflow-hidden"></div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold text-lg shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:bg-blue-700 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 group">
+              Start Game
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>
-            
-            <button className="px-8 py-4 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-sm flex items-center justify-center gap-2">
-              <ShieldCheck size={20} className="text-green-400"/> Fair Play Policy
+            <button className="px-8 py-4 bg-white text-gray-700 border-2 border-gray-200 rounded-2xl font-bold text-lg hover:border-blue-200 hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+              <Users size={20}/>
+              Invite Friends
             </button>
+          </div>
+
+          <div className="flex items-center gap-6 pt-4 text-sm font-semibold text-gray-500">
+             <span className="flex items-center gap-1"><BrainCircuit size={16}/> Pure Strategy</span>
+             <span>•</span>
+             <span>No Gambling</span>
+             <span>•</span>
+             <span>Family Friendly</span>
           </div>
         </div>
 
-        {/* 右侧视觉图 (3D 浮动卡牌) */}
-        <div className="relative h-[500px] w-full hidden md:block perspective-1000">
-          <DecorativeCard rank="A" suit="♠" color="black" rotate="-rotate-12" position="left-10 top-20" delay="0s" />
-          <DecorativeCard rank="K" suit="♥" color="red" rotate="rotate-6" position="right-20 top-10" delay="1s" />
-          <DecorativeCard rank="J" suit="JOKER" color="purple" rotate="rotate-12" position="left-1/3 bottom-10 z-20" delay="2s" />
-          
-          {/* 装饰性筹码/圆圈 */}
-          <div className="absolute right-10 bottom-20 w-20 h-20 rounded-full border-4 border-yellow-500/30 animate-bounce delay-700"></div>
-          <div className="absolute left-20 top-40 w-12 h-12 rounded-full bg-yellow-400 blur-md animate-pulse"></div>
+        {/* 右侧：视觉展示 (摆好的牌型) */}
+        <div className="relative h-[500px] w-full flex justify-center items-center perspective-[2000px]">
+          {/* Group 1: Run (10, 11, 12 Blue) */}
+          <div className="absolute top-10 left-10 flex gap-1 transform -rotate-12 z-10">
+             <RummyTile number={10} color="blue" delay={0} />
+             <RummyTile number={11} color="blue" delay={0.2} />
+             <RummyTile number={12} color="blue" delay={0.4} />
+          </div>
+
+          {/* Group 2: Set (7, 7, 7 Different Colors) */}
+          <div className="absolute bottom-20 right-10 flex gap-1 transform rotate-6 z-20">
+             <RummyTile number={7} color="red" delay={1} />
+             <RummyTile number={7} color="black" delay={1.2} />
+             <RummyTile number={7} color="orange" delay={1.4} />
+          </div>
+
+          {/* The Joker floating in the middle */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+            <RummyTile number="J" color="red" scale={1.2} delay={0.8} className="shadow-2xl" />
+          </div>
+
+           {/* 背景装饰性圆圈 */}
+           <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-orange-50 rounded-full opacity-30 blur-3xl -z-10 transform scale-75"></div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
